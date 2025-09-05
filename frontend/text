@@ -1,0 +1,33 @@
+{showResults && progress === 100 && (
+        <div className="mt-8 p-6 bg-white text-gray-900 rounded-lg shadow-lg w-full max-w-7xl mx-auto flex">
+          <div className="w-1/2 pr-4">
+            <h2 className="text-xl font-semibold mb-2">Analysis Results</h2>
+  
+            <div className="mt-4 p-4 bg-white shadow-md rounded-md">
+              <h3 className="text-lg font-semibold">Feature Data</h3>
+              <table className="min-w-full text-left">
+                <thead>
+                  <tr>
+                    <th className="py-2 px-4 border-b">Feature</th>
+                    <th className="py-2 px-4 border-b">Value</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {results.data.features &&
+                    Object.entries(results.data.features).map(([key, value]) => (
+                      <tr key={key}>
+                        <td className="py-2 px-4 border-b">{key}</td>
+                        <td className="py-2 px-4 border-b">{value}</td>
+                      </tr>
+                    ))}
+                
+                  <tr>
+                    <td className="py-2 px-4 border-b">Percentage Weight Lose</td>
+                    <td className="py-2 px-4 border-b">{results?.data?.percentage_weight_lose || 'N/A'}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      )}
